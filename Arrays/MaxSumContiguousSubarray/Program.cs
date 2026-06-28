@@ -10,7 +10,7 @@ Problem Constraints:
 Input Format:
 The first and the only argument contains an integer array, A.
 
-Output Format
+Output Format:
 Return an integer representing the maximum possible sum of the contiguous subarray.
 
 Example Input:
@@ -25,35 +25,38 @@ Output 1:
 Output 2:
  6 
 
-Example Explanation:
+Example Explanation
 Explanation 1:
  The subarray [1, 2, 3, 4] has the maximum possible sum of 10. 
 Explanation 2:
- The subarray [4,-1,2,1] has the maximum possible sum of 6.  
+ The subarray [4,-1,2,1] has the maximum possible sum of 6. 
 */
 namespace MaxSumContiguousSubarray
 {
-  public class Program
+  class Program
   {
-    public static void Main(string[] args)
+    static void Main(string[] args)
     {
-      //List<int> A = new List<int> { 1, 2, 3, 4, -10 };
-      List<int> A = new List<int> { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+      var program = new Program(); List<int> A = new List<int> { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
       Console.WriteLine(MaxSubArray(A));
     }
 
     public static int MaxSubArray(List<int> A)
     {
-      int n = A.Count();
-      int max = int.MinValue;
-      int curr = 0;
-      for (int i = 0; i < n; i++)
+      int maxsum = int.MinValue, sum = 0;
+      for (int i = 0; i < A.Count(); i++)
       {
-        curr = curr + A[i];
-        max = Math.Max(curr, max);
-        curr = Math.Max(curr, 0);
+        sum += A[i];
+        if (sum > maxsum)
+        {
+          maxsum = sum;
+        }
+        if (sum < 0)
+        {
+          sum = 0;
+        }
       }
-      return max;
+      return (maxsum);
     }
   }
 }
