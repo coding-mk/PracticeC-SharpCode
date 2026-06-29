@@ -37,7 +37,7 @@ namespace MaxSumContiguousSubarray
   {
     static void Main(string[] args)
     {
-      var program = new Program(); List<int> A = new List<int> { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+      List<int> A = new List<int> { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
       Console.WriteLine(MaxSubArray(A));
     }
 
